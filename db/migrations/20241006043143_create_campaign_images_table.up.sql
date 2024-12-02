@@ -1,0 +1,10 @@
+CREATE TABLE campaign_images(
+    id INT NOT NULL AUTO_INCREMENT,
+    campaign_id INT NULL,
+    file_name VARCHAR(255) NULL,
+    is_primary TINYINT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (campaign_id) REFERENCES campaigns(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
