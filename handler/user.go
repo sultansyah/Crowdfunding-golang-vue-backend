@@ -53,6 +53,14 @@ func (h *userHandler) RegisterUser(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 }
 
+func (h *userHandler) CheckSessionUser(c *gin.Context) {
+	currentUser := c.MustGet("currentUser").(user.User)
+
+	response := helper.APIResponse("Successfuly loggedin", http.StatusOK, "success", user.FormatCurrentUser(currentUser))
+
+	c.JSON(http.StatusOK, response)
+}
+
 func (h *userHandler) Login(c *gin.Context) {
 	var input user.LoginInput
 
