@@ -55,8 +55,9 @@ func (h *userHandler) RegisterUser(c *gin.Context) {
 
 func (h *userHandler) CheckSessionUser(c *gin.Context) {
 	currentUser := c.MustGet("currentUser").(user.User)
+	currentTokenUser := c.MustGet("currentTokenUser").(string)
 
-	response := helper.APIResponse("Successfuly loggedin", http.StatusOK, "success", user.FormatCurrentUser(currentUser))
+	response := helper.APIResponse("Successfuly loggedin", http.StatusOK, "success", user.FormatUser(currentUser, currentTokenUser))
 
 	c.JSON(http.StatusOK, response)
 }

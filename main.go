@@ -113,5 +113,6 @@ func authMiddleware(authService auth.Service, userService user.Service) gin.Hand
 		}
 
 		c.Set("currentUser", user)
+		c.Set("currentTokenUser", token.Raw)
 	}
 }

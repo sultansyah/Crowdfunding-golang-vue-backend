@@ -29,15 +29,3 @@ func FormatUser(user User, token string) UserFormatter {
 
 	return formatter
 }
-
-func FormatCurrentUser(user User) UserFormatter {
-	formatter := UserFormatter{
-		ID:         user.Id,
-		Name:       user.Name,
-		Occupation: user.Occupation,
-		Email:      user.Email,
-		ImageURL:   user.AvatarFileName,
-	}
-
-	return formatter
-}
